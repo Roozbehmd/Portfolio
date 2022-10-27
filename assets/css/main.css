@@ -745,19 +745,19 @@ h6 {
   margin-top: 40px;
 }
 
-.portrait .gallery-item {
+.portrait.portrait-item {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
 }
 
-.portrait .gallery-item img {
-  /*transition: 0.3s;*/
+.portrait.portrait-item img {
+  transition: 0.3s;
 }
 
 
-.portrait .gallery-links .preview-link,
-.portrait .gallery-links .details-link {
+.portrait.portrait-links .preview-link,
+.portrait.portrait-links .details-link {
   font-size: 20px;
   color: rgba(255, 255, 255, 0.5);
   transition: 0.3s;
@@ -765,17 +765,17 @@ h6 {
   margin: 30px 8px 0 8px;
 }
 
-.gallery .gallery-item:hover .gallery-links {
+.portrait.portrait-item:hover .gallery-links {
   opacity: 1;
 }
 
-.gallery .gallery-item:hover .preview-link,
-.gallery .gallery-item:hover .details-link {
+.portrait.portrait-item:hover .preview-link,
+.portrait.portrait-item:hover .details-link {
   margin-top: 0;
 }
 
-.gallery .gallery-item:hover img {
-  transform: scale(1.1);
+.portrait.portrait-item:hover img {
+  transform: scale(1.05);
 }
 
 
