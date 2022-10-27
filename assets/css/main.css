@@ -739,6 +739,48 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+# Portrait Section
+--------------------------------------------------------------*/
+.portrait {
+  margin-top: 40px;
+}
+
+.portrait .gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.portrait .gallery-item img {
+  /*transition: 0.3s;*/
+}
+
+
+.portrait .gallery-links .preview-link,
+.portrait .gallery-links .details-link {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: 0.3s;
+  line-height: 1.2;
+  margin: 30px 8px 0 8px;
+}
+
+.gallery .gallery-item:hover .gallery-links {
+  opacity: 1;
+}
+
+.gallery .gallery-item:hover .preview-link,
+.gallery .gallery-item:hover .details-link {
+  margin-top: 0;
+}
+
+.gallery .gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+
+
+/*--------------------------------------------------------------
 # Pricing Section
 --------------------------------------------------------------*/
 .gallery {
