@@ -38,6 +38,10 @@ body {
   background-color: #000;
 }
 
+iframe{
+
+}
+
 a {
   color: var(--color-default);
   text-decoration: none;
@@ -1264,11 +1268,12 @@ h6 {
 .hero {
   
   width: 100%;
-  min-height: 30vh;
-  background: #000;
+  min-height: 50vh;
+  background: rgba(0,0,0,0.99);
   background-size: cover;
   position: relative;
   padding: 140px 0 60px 0;
+  overflow: hidden;
 }
 
 .hero h2 {
@@ -1277,6 +1282,13 @@ h6 {
   font-weight: 700;
   color: #fff;
   font-family: var(--font-secondary);
+  background: rgba(0, 0, 0, 0.7);
+
+}
+
+.hero h2:before {
+
+
 }
 
 .hero h2 span {
@@ -1301,6 +1313,7 @@ h6 {
   color: rgba(255, 255, 255, 0.6);
   margin-bottom: 30px;
   font-size: 18px;
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .hero .btn-get-started {
@@ -1324,6 +1337,9 @@ h6 {
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 32px;
+  }
+  #nameHolder{
+    width: 200px;
   }
 }
 
@@ -1351,4 +1367,32 @@ h6 {
 
 .footer .credits a {
   color: var(--color-default);
+}
+
+#nameHolder{
+  width: 400px;
+}
+
+@media (max-width: 768px) {
+
+  #nameHolder{
+    width: 350px;
+  }
+}
+
+
+/*#container{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+}
+*/
+iframe{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    overflow: hidden;
+
 }
