@@ -367,9 +367,9 @@
 
 <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-<div id="preloader">
+<!-- <div id="preloader">
 	<div class="line"></div>
-</div>
+</div> -->
 
 <!-- Vendor JS Files -->
 <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -412,9 +412,9 @@
 	        document.title = tempTitle;
 	        document.getElementById("nameHolder").innerHTML = '   ' + tempTitle + '    ';
 
-	        // Check elapsed time (8 seconds) and update the entire string if needed
+	        // Check elapsed time (5 seconds) and update the entire string if needed
 	        const currentTime = new Date().getTime();
-	        if (currentTime - startTime >= 8000) {
+	        if (currentTime - startTime >= 5000) {
 	            document.title = name;
 	            document.getElementById("nameHolder").innerHTML = '   ' + name + '    ';
 	            clearInterval(nameSetter);

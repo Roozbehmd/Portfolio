@@ -10,18 +10,25 @@ document.addEventListener('DOMContentLoaded', () => {
   /**
    * Preloader
    */
+  // const preloader = document.querySelector('#preloader');
+  // if (preloader) {
+  //   window.addEventListener('load', () => {
+  //     setTimeout(() => {
+  //       preloader.classList.add('loaded');
+  //     }, 1000);
+  //     setTimeout(() => {
+  //       preloader.remove();
+  //     }, 2000);
+  //   });
+  // }
   const preloader = document.querySelector('#preloader');
   if (preloader) {
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        preloader.classList.add('loaded');
-      }, 1000);
-      setTimeout(() => {
-        preloader.remove();
-      }, 2000);
+    window.addEventListener('DOMContentLoaded', () => {
+      // Immediately remove the preloader
+      preloader.classList.add('loaded');
+      preloader.remove();
     });
   }
-
   /**
    * Mobile nav toggle
    */
