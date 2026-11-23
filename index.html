@@ -1,445 +1,227 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
 	<meta charset="utf-8">
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<title>Roozbeh Moayyedian</title>
-	<meta content="" name="description">
-	<meta content="" name="keywords">
+	<meta name="description" content="Roozbeh Moayyedian is a Toronto-based interactive media designer and developer, and founder of Hexon Engineering Inc.">
+	<meta name="theme-color" content="#05070b">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Roozbeh Moayyedian">
+	<meta property="og:description" content="Toronto-based interactive media designer and developer, and founder of Hexon Engineering Inc.">
+	<meta property="og:image" content="assets/img/gallery/web/gallery-12-1600.jpg">
 
-
-	<!-- Favicons -->
 	<link rel="icon" href="assets/img/favicon.png">
-	<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" >
+	<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
-	<!-- Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-	<!-- Vendor CSS Files -->
-	<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-	<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-	<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-	<link href="assets/vendor/aos/aos.css" rel="stylesheet">
-
-	<!-- Template Main CSS File -->
-	<link href="assets/css/main.css" rel="stylesheet">
-
-
+	<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+	<link href="assets/css/style.css" rel="stylesheet">
+	<script>document.documentElement.classList.add('js');</script>
 </head>
-
 <body>
 
-	
+<a class="skip" href="#work">Skip to work</a>
 
-	<!-- ======= Header ======= -->
-	<header id="header" class="header d-flex align-items-center fixed-top">
-		<div class="container-fluid d-flex align-items-center justify-content-between">
+<header class="nav" id="nav">
+	<a class="brand" href="#top" aria-label="Roozbeh Moayyedian, back to top">
+		<span class="brand-mark" aria-hidden="true"><span>RM</span></span>
+		<span class="brand-name">Roozbeh Moayyedian</span>
+	</a>
+	<nav class="nav-links" aria-label="Primary">
+		<a href="#work">Work</a>
+		<a href="#contact">Contact</a>
+	</nav>
+	<p class="nav-clock" aria-label="Local time in Toronto"><span>Toronto</span> <time id="clock">&nbsp;</time></p>
+</header>
 
+<main id="top">
 
+	<!-- ======= Hero ======= -->
+	<section class="hero" aria-labelledby="hero-title">
+		<canvas id="lattice" aria-hidden="true"></canvas>
 
-			<nav id="navbar" class="navbar">
+		<div class="hero-inner wrap">
+			<h1 id="hero-title">
+				I'm <span class="name" id="name"><span class="sr">Roozbeh Moayyedian</span><span class="name-fx" id="name-fx" aria-hidden="true">Roozbeh Moayyedian</span></span>, a <span class="nowrap">Toronto-based</span> interactive media <em>designer</em> and <em>developer</em>
+			</h1>
+			<p class="studio">
+				<span class="studio-mark" aria-hidden="true"></span>
+				<span>Founder of <strong>Hexon Engineering Inc.</strong></span>
+			</p>
+			<div class="hero-actions">
+				<a class="btn btn-primary" href="#work">See the work
+					<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v11M3.5 8.5 8 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+				</a>
+				<a class="btn btn-ghost" href="#contact">Get in touch</a>
+			</div>
+		</div>
+
+		<div class="hero-foot wrap">
+			<a class="scroll-cue" href="#work">Scroll <span aria-hidden="true"></span></a>
+		</div>
+	</section>
+
+	<!-- ======= Collaborators ======= -->
+	<section class="collab" aria-label="Clients and collaborators">
+		<p class="collab-label">Made with &amp; for</p>
+		<div class="marquee">
+			<div class="marquee-track">
 				<ul>
-					<li><a href="index.html" class="active">Home</a></li>
-          <!--<li><a href="about.html">About</a></li>
-          <li class="dropdown"><a href="#"><span>Gallery</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
-              <li><a href="gallery.html">Nature</a></li>
-              <li><a href="gallery.html">People</a></li>
-              <li><a href="gallery.html">Architecture</a></li>
-              <li><a href="gallery.html">Animals</a></li>
-              <li><a href="gallery.html">Sports</a></li>
-              <li><a href="gallery.html">Travel</a></li>
-              <li class="dropdown"><a href="#"><span>Sub Menu</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="#">Sub Menu 1</a></li>
-                  <li><a href="#">Sub Menu 2</a></li>
-                  <li><a href="#">Sub Menu 3</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a href="services.html">Services</a></li> -->
-          <li><a href="contact.html">Contact</a></li>
-      </ul>
-  </nav><!-- .navbar -->
-
-  <div class="header-social-links">
-  	<!-- <a href="#" class="twitter"><i class="bi bi-twitter"></i></a> -->
-  	<!-- <a href="#" class="facebook"><i class="bi bi-facebook"></i></a> -->
-  	<!--<a href="https://www.instagram.com/roozbeh_m/" class="instagram"><i class="bi bi-instagram"></i></a> -->
-  	<!--<a href="https://www.linkedin.com/in/roozbeh-m/" class="linkedin"><i class="bi bi-linkedin"></i></i></a> -->
-  </div>
-  <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-  <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-
-</div>
-</header><!-- End Header -->
-
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="hero d-flex flex-column justify-content-center align-items-center" data-aos="fade" data-aos-delay="1500">
-	<iframe src="background.html" scrolling="no"></iframe>  
-
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-6 text-center">
-				<h2>I'm <span id='nameHolder' >Roozbeh Moayyedian</span>, a Toronto-based digital media designer and developer</h2>
-				<p>I create immersive interactive experiences incorporating modern technologies.</p>
-				<a href="contact.html" class="btn-get-started">Get in touch</a>
+					<li>Hexon Engineering Inc.</li>
+					<li>Destination Ducks</li>
+					<li>Stitch Media</li>
+					<li>Winterstations</li>
+					<li>University of Guelph</li>
+					<li>Nuit Blanche Toronto</li>
+					<li>BottleCap Studio</li>
+					<li>Tweed</li>
+					<li>Sapporo</li>
+					<li>Doja</li>
+					<li>Convivial Studio</li>
+					<li>Red Right Hand Publishing</li>
+					<li>ARTCRYPTION</li>
+				</ul>
+				<ul aria-hidden="true">
+					<li>Hexon Engineering Inc.</li>
+					<li>Destination Ducks</li>
+					<li>Stitch Media</li>
+					<li>Winterstations</li>
+					<li>University of Guelph</li>
+					<li>Nuit Blanche Toronto</li>
+					<li>BottleCap Studio</li>
+					<li>Tweed</li>
+					<li>Sapporo</li>
+					<li>Doja</li>
+					<li>Convivial Studio</li>
+					<li>Red Right Hand Publishing</li>
+					<li>ARTCRYPTION</li>
+				</ul>
 			</div>
 		</div>
-	</div>
-</section><!-- End Hero Section -->
+	</section>
 
-<main id="main" data-aos="fade" data-aos-delay="1500">
-
-	<!-- ======= Gallery Section ======= -->
-	<section id="gallery" class="gallery">
-		<div class="container-fluid">
-
-			<div class="row gy-4 justify-content-center">
-
-				<div class="col-xl-3 col-lg-4 col-md-6" onclick="window.location='https://www.gamesbystitch.com/games/elsewhere-electric';" style="cursor: pointer;">
-				    <a href="https://www.gamesbystitch.com/games/elsewhere-electric" class="gallery-link">
-				        <div class="gallery-item h-100">
-				            <img src="assets/img/gallery/gallery-11.jpg" href="assets/img/gallery/gallery-11.jpg" class="img-fluid" alt="">
-				            <div class="gallery-links d-flex align-items-center justify-content-center">
-				                <span> View </span>
-				                <a href="assets/img/gallery/gallery-11.jpg" title="[Stitch Media] Elsewhere Electric: Upcoming asymmetric co-op VR Game" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-				                <i class="bi bi-link-45deg details-link"></i>
-				            </div>
-				        </div>
-				    </a>
-				</div><!-- End Gallery Item -->
-
-
-
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://winteraction.org';" style="cursor: pointer;">
-				    <a href="https://winteraction.org" class="gallery-link">
-				        <div class="gallery-item h-100">
-				            <img src="assets/img/gallery/gallery-12.jpg" href="assets/img/gallery/gallery-12.jpg" class="img-fluid" alt="">
-				            <div class="gallery-links d-flex align-items-center justify-content-center">
-				                <span> Download on iOS and Android </span>
-				                <a href="assets/img/gallery/gallery-12.jpg" title="WINTERACTION: An interactive AR installation developed for Winterstations 2024 in collaboration with University of Guelph" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-				                <i class="bi bi-link-45deg details-link"></i>
-				            </div>
-				        </div>
-				    </a>
-				</div><!-- End Gallery Item -->
-				
-
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://youtu.be/YRb0Nn1kpPE';" style="cursor: pointer;">
-				    <a href="https://youtu.be/YRb0Nn1kpPE" class="gallery-link">
-				        <div class="gallery-item h-100">
-				            <img src="assets/img/gallery/gallery-13.jpg" href="assets/img/gallery/gallery-13.jpg" class="img-fluid" alt="">
-				            <div class="gallery-links d-flex align-items-center justify-content-center">
-				                <span> View </span>
-				                <a href="assets/img/gallery/gallery-13.jpg" title="DOJA Grow Room: An interacitve display developed for Doja." class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-				                <i class="bi bi-link-45deg details-link"></i>
-				            </div>
-				        </div>
-				    </a>
-				</div><!-- End Gallery Item -->
-
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://roozbehmd.github.io/Jailhouse/';" style="cursor: pointer;">
-				    <a href="https://roozbehmd.github.io/Jailhouse/" class="gallery-link">
-				        <div class="gallery-item h-100">
-				            <img src="assets/img/gallery/gallery-09.jpg" href="assets/img/gallery/gallery-09.jpg" class="img-fluid" alt="">
-				            <div class="gallery-links d-flex align-items-center justify-content-center">
-				                <span> Play(Desktop only Chrome or Firefox) </span>
-				                <a href="assets/img/gallery/gallery-09.jpg" title="[Under Development] Personal Project; Web-based multiplayer mayhem game. Latest version available to play!" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-				                <i class="bi bi-link-45deg details-link"></i>
-				            </div>
-				        </div>
-				    </a>
-				</div><!-- End Gallery Item -->
-
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://youtu.be/w295bVW-Ejs';" style="cursor: pointer;">
-					<div class="gallery-item h-100">
-						<img src="assets/img/gallery/gallery-2.jpg" class="img-fluid" alt="">
-						<div class="gallery-links d-flex align-items-center justify-content-center">
-							<span> View </span>
-							<a href="assets/img/gallery/gallery-2.jpg" title="Cherry Blossoms TO: An interactive display that lets users control wind effects, using movement detection sensors, developed in collaboration with BottleCap Studio" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-							<a href="https://youtu.be/w295bVW-Ejs" class="details-link"><i class="bi bi-link-45deg"></i></a>
-						</div>
-					</div>
-				</div><!-- End Gallery Item -->
-
-
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://vzn7p.zappar.io/1456904615276066861/21/';" style="cursor: pointer;">
-					<div class="gallery-item h-150">
-						<img src="assets/img/gallery/gallery-05c.jpg" class="img-fluid" alt="">
-
-						<div class="gallery-links d-flex align-items-center justify-content-center">
-							<a href= "https://vzn7p.zappar.io/1456904615276066861/21/"> Download on iOS/Android </a>  
-							<a href="assets/img/gallery/gallery-05.jpg" title="WE[AR]: An interactive AR installation developed for Winterstations 2023 in collaboration with University of Guelph, School of Environmental Design & Rural Development" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-							<a href="https://vzn7p.zappar.io/1456904615276066861/21/" class="details-link"><i class="bi bi-link-45deg"></i></a>
-						</div>
-					</div>
-				</div><!-- End Gallery Item -->
-
-
-
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://roozbehmd.github.io/EXILE/';" style="cursor: pointer;">
-					<div class="gallery-item h-150">
-						<img src="assets/img/gallery/gallery-0.jpg" class="img-fluid" alt="">
-
-						<div class="gallery-links d-flex align-items-center justify-content-center">
-							<a href= "https://roozbehmd.github.io/EXILE/"> Download on Windows/Mac </a>  
-							<a href="assets/img/gallery/gallery-0.jpg" title="EXILE: A prototype first person game" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-							<a href="https://roozbehmd.github.io/EXILE/" class="details-link"><i class="bi bi-link-45deg"></i></a>
-						</div>
-					</div>
-				</div><!-- End Gallery Item -->
-
-
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://apps.apple.com/ca/app/luminous-trails/id1644229038';" style="cursor: pointer;">
-					<div class="gallery-item h-150">
-						<img src="assets/img/gallery/gallery-1.jpg" class="img-fluid" alt="">
-
-						<div class="gallery-links d-flex align-items-center justify-content-center">
-							<a href= "https://apps.apple.com/ca/app/luminous-trails/id1644229038"> Install on iOS devices </a>  
-							<a href="assets/img/gallery/gallery-1.jpg" title="Luminous Trails: A geolocation-based AR social experience designed and developed for Nuit Blanche Toronto" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-							<a href="https://apps.apple.com/ca/app/luminous-trails/id1644229038" class="details-link"><i class="bi bi-link-45deg"></i></a>
-						</div>
-					</div>
-
-			</div><!-- End Gallery Item -->
-
-							<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://roozbehmd.github.io/Gallery/';" style="cursor: pointer;">
-					<div class="gallery-item h-100">
-						<img src="assets/img/gallery/gallery-14.jpg" class="img-fluid" alt="">
-						<div class="gallery-links d-flex align-items-center justify-content-center">
-							<a href= "https://roozbehmd.github.io/Gallery/"> Play in browser </a>
-							<a href="assets/img/gallery/gallery-14.jpg" title="A Virtual Gallery Developed for the NFT store ARTCRYPTION" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-							<a href="https://roozbehmd.github.io/Gallery/" class="details-link"><i class="bi bi-link-45deg"></i></a>
-						</div>
-					</div>
-				</div><!-- End Gallery Item -->
-
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://roozbehmd.github.io/Tweed2/';" style="cursor: pointer;">
-					<div class="gallery-item h-100">
-						<img src="assets/img/gallery/gallery-08.jpg" class="img-fluid" alt="">
-						<div class="gallery-links d-flex align-items-center justify-content-center">
-							<a href= "https://roozbehmd.github.io/Tweed2/"> Play in browser </a>
-							<a href="assets/img/gallery/gallery-08.jpg" title="Worked on the second iteration of Tweed Grow to Win: A promotional Among-Us style web-based game for mobile, developed for Tweed, in collaboration with BottleCap Studio" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-							<a href="https://roozbehmd.github.io/Tweed2/" class="details-link"><i class="bi bi-link-45deg"></i></a>
-						</div>
-					</div>
-				</div><!-- End Gallery Item -->
-
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://roozbehmd.github.io/SKY/';" style="cursor: pointer;">
-
-					<div class="gallery-item h-100">
-						<img src="assets/img/gallery/gallery-06.jpg" class="img-fluid" alt="">
-						<div class="gallery-links d-flex align-items-center justify-content-center">
-							<a href= "https://roozbehmd.github.io/SKY/"> View in browser </a>  
-
-							<a href="assets/img/gallery/gallery-06.jpg" title="SKY: interactive live digital art" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-							<a href="https://roozbehmd.github.io/SKY/" class="details-link"><i class="bi bi-link-45deg"></i></a>
-						</div>
-					</div>
-				</div><!-- End Gallery Item -->
-
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://roozbehmd.github.io/JengaBlocks/';" style="cursor: pointer;">
-					<div class="gallery-item h-100">
-						<img src="assets/img/gallery/gallery-10.jpg" class="img-fluid" alt="">
-						<div class="gallery-links d-flex align-items-center justify-content-center">
-							<span> Play in browser </span>
-
-							<a href= "https://roozbehmd.github.io/JengaBlocks/"> </a>
-							<a href="assets/img/gallery/gallery-10.jpg" title="Web-based jenga game" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-							<a href="https://roozbehmd.github.io/JengaBlocks/" class="details-link"><i class="bi bi-link-45deg"></i></a>
-						</div>
-					</div>
-				</div><!-- End Gallery Item -->
-
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://roozbehmd.github.io/FUNGI/';" style="cursor: pointer;">
-
-					<div class="gallery-item h-100">
-						<img src="assets/img/gallery/gallery-07.jpg" class="img-fluid" alt="">
-						<div class="gallery-links d-flex align-items-center justify-content-center">
-							<span> View </span>
-
-							<a href= "https://roozbehmd.github.io/FUNGI/"> </a>  
-
-							<a href="assets/img/gallery/gallery-07.jpg" title="FUNGI: Generative live digital art" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-							<a href="https://roozbehmd.github.io/FUNGI/" class="details-link"><i class="bi bi-link-45deg"></i></a>
-						</div>
-					</div>
-				</div><!-- End Gallery Item -->
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://www.youtube.com/watch?v=mcaDTC8QlLU';" style="cursor: pointer;">
-					<div class="gallery-item h-100">
-						<img src="assets/img/gallery/gallery-3.jpg" class="img-fluid" alt="">
-						<div class="gallery-links d-flex align-items-center justify-content-center">
-							<span> View </span>
-
-							<a href="assets/img/gallery/gallery-3.jpg" title="PLANETARIUM: A lifestyle game with the goal of habit change, designed and developed for my Master's degree's thesis" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-							<a href="https://www.youtube.com/watch?v=mcaDTC8QlLU" class="details-link"><i class="bi bi-link-45deg"></i></a>
-						</div>
-					</div>
-				</div><!-- End Gallery Item -->
-
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://roozbehmd.github.io/TIME/';" style="cursor: pointer;">
-					<div class="gallery-item h-150">
-						<img src="assets/img/gallery/gallery-02.jpg" class="img-fluid" alt="">
-
-						<div class="gallery-links d-flex align-items-center justify-content-center">
-							<span> View </span>
-
-							<a href= "https://roozbehmd.github.io/TIME/"></a>  
-							<a href="assets/img/gallery/gallery-02.jpg" title="A live clock based on the designs of Tudor watches, available to view on any browser" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-							<a href="https://roozbehmd.github.io/TIME/" class="details-link"><i class="bi bi-link-45deg"></i></a>
-						</div>
-					</div>
-				</div><!-- End Gallery Item -->
-					<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://roozbehmd.github.io/Tweed/';" style="cursor: pointer;">
-					<div class="gallery-item h-100">
-						<img src="assets/img/gallery/gallery-4.jpg" class="img-fluid" alt="">
-						<div class="gallery-links d-flex align-items-center justify-content-center">
-							<span> Play in browser </span>
-
-							<a href= "https://roozbehmd.github.io/Tweed/"> </a>
-							<a href="assets/img/gallery/gallery-4.jpg" title="Tweed Grow to Win: A promotional Among-Us style web-based game for mobile and pc developed for Tweed, in collaboration with BottleCap Studio" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-							<a href="https://roozbehmd.github.io/Tweed/" class="details-link"><i class="bi bi-link-45deg"></i></a>
-						</div>
-					</div>
-				</div><!-- End Gallery Item -->
-
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://youtube.com/shorts/fwRhLD-S5eM?feature=share';" style="cursor: pointer;">
-					<div class="gallery-item h-100">
-						<img src="assets/img/gallery/gallery-5.jpg" class="img-fluid" alt="">
-						<div class="gallery-links d-flex align-items-center justify-content-center">
-							<span> View </span>
-
-							<a href="assets/img/gallery/gallery-5.jpg" title="OneShot: A web-based AR high score runner game developed for Sapporo in collaboration with BottleCap Studio" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-							<a href="https://youtube.com/shorts/fwRhLD-S5eM?feature=share" class="details-link"><i class="bi bi-link-45deg"></i></a>
-						</div>
-					</div>
-				</div><!-- End Gallery Item -->
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://vimeo.com/560594164';" style="cursor: pointer;">
-					<div class="gallery-item h-100">
-						<img src="assets/img/gallery/gallery-6.jpg" class="img-fluid" alt="">
-						<div class="gallery-links d-flex align-items-center justify-content-center">
-							<span> View </span>
-
-							<a href="assets/img/gallery/gallery-6.jpg" title="Forbidden Sigil: A board game companion app designed and developed for Red Right Hand Publishing Inc." class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-							<a href="https://vimeo.com/560594164" class="details-link"><i class="bi bi-link-45deg"></i></a>
-						</div>
-					</div>
-				</div><!-- End Gallery Item -->
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://www.convivial.studio/drifters/';" style="cursor: pointer;">
-					<div class="gallery-item h-100">
-						<img src="assets/img/gallery/gallery-7.jpg" class="img-fluid" alt="">
-						<div class="gallery-links d-flex align-items-center justify-content-center">
-							<span> View </span>
-
-							<a href="assets/img/gallery/gallery-7.jpg" title="Wonders of the Drifting World VR: Worked on the VR version of this project with Convivial Studio" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-							<a href="https://www.convivial.studio/drifters/" class="details-link"><i class="bi bi-link-45deg"></i></a>
-						</div>
-					</div>
-				</div><!-- End Gallery Item -->
-
-				<div class="col-xl-3 col-lg-4 col-md-6"onclick="window.location='https://www.youtube.com/watch?v=I6vsOM9dKG0';" style="cursor: pointer;">
-					<div class="gallery-item h-100">
-						<img src="assets/img/gallery/gallery-8.jpg" class="img-fluid" alt="">
-						<div class="gallery-links d-flex align-items-center justify-content-center">
-							<span> View </span>
-
-							<a href="assets/img/gallery/gallery-8.jpg" title="Jack BeanBoozled: My first Unity project, an AR storybook prototype developed during my masters' studies in 2020" class="glightbox preview-link"><i class="bi bi-arrows-angle-expand"></i></a>
-							<a href="https://www.youtube.com/watch?v=I6vsOM9dKG0" class="details-link"><i class="bi bi-link-45deg"></i></a>
-						</div>
-					</div>
-				</div><!-- End Gallery Item -->
-
-
+	<!-- ======= Work ======= -->
+	<section class="work wrap" id="work" aria-labelledby="work-title">
+		<div class="section-head">
+			<div>
+				<p class="label"><span id="work-count">20</span> projects</p>
+				<h2 id="work-title">Selected work</h2>
 			</div>
-
+			<div class="filters" id="filters" role="group" aria-label="Filter projects"></div>
 		</div>
-	</section><!-- End Gallery Section -->
 
-</main><!-- End #main -->
+		<div class="grid" id="grid"></div>
+		<noscript><p class="noscript">Turn on JavaScript to see the projects.</p></noscript>
+	</section>
+
+	<!-- ======= Contact ======= -->
+	<section class="contact wrap" id="contact" aria-labelledby="contact-title">
+		<div class="portrait reveal">
+			<span class="portrait-frame" aria-hidden="true"></span>
+			<span class="portrait-frame portrait-frame--outer" aria-hidden="true"></span>
+			<div class="portrait-img">
+				<img class="p-bw" src="assets/img/Portrait.jpg" width="496" height="498" alt="Portrait of Roozbeh Moayyedian" loading="lazy" decoding="async">
+				<img class="p-colour" src="assets/img/Portrait.jpg" width="496" height="498" alt="" aria-hidden="true" loading="lazy" decoding="async">
+			</div>
+		</div>
+
+		<div class="contact-body">
+			<p class="label reveal">Contact</p>
+			<h2 id="contact-title" class="reveal">Have an idea you want to turn into a reality?</h2>
+
+			<p class="ask reveal" id="ask" aria-hidden="true">
+				<span class="on">Want to collaborate on a cool new project?</span>
+				<span>Want to put together a team for an exciting new project you've had in mind and finally get it done?</span>
+				<span>Want to chat about groundbreaking technologies, movies, or video games?</span>
+				<span>Want to chat about how and why birds and mammals independently developed four-chambered hearts through evolution?</span>
+				<span>Concerned about the state of the world?</span>
+			</p>
+			<ul class="sr">
+				<li>Want to collaborate on a cool new project?</li>
+				<li>Want to put together a team for an exciting new project you've had in mind and finally get it done?</li>
+				<li>Want to chat about groundbreaking technologies, movies, or video games?</li>
+				<li>Want to chat about how and why birds and mammals independently developed four-chambered hearts through evolution?</li>
+				<li>Concerned about the state of the world?</li>
+			</ul>
+			<p class="reach reveal">Reach out!</p>
+
+			<ul class="links reveal">
+				<li>
+					<a href="mailto:roozbeh.moayyedian@gmail.com">
+						<span class="k">Email</span>
+						<span class="v" id="email-text">roozbeh.moayyedian@<wbr>gmail.com</span>
+						<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+					</a>
+					<button class="copy" type="button" data-copy="roozbeh.moayyedian@gmail.com" data-target="email-text">Copy</button>
+				</li>
+				<li>
+					<a href="https://www.linkedin.com/in/roozbeh-m/" target="_blank" rel="noopener">
+						<span class="k">LinkedIn</span>
+						<span class="v">linkedin.com/in/roozbeh-m</span>
+						<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+					</a>
+				</li>
+				<li>
+					<a href="https://www.instagram.com/roozbeh_m/" target="_blank" rel="noopener">
+						<span class="k">Instagram</span>
+						<span class="v">instagram.com/roozbeh_m</span>
+						<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+					</a>
+				</li>
+				<li>
+					<a href="tel:+16472032955">
+						<span class="k">Call</span>
+						<span class="v">+1 647 203 2955</span>
+						<svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M5.5 4H12v6.5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+</main>
 
 <!-- ======= Footer ======= -->
-<footer id="footer" class="footer">
-	<div class="container">
-		<div class="copyright">
-			&copy; Copyright <strong><span>Roozbeh Moayyedian</span></strong>. All Rights Reserved
-		</div>
-
+<footer class="footer wrap" id="footer">
+	<p class="footer-mark" aria-hidden="true"><span>Roozbeh Moayyedian</span></p>
+	<div class="footer-row">
+		<p>&copy; <span id="year">2026</span> Roozbeh Moayyedian. All rights reserved.</p>
+		<p class="mono" title="RM in binary">01010010 01001101</p>
+		<a href="#top">Back to top ↑</a>
 	</div>
-</footer><!-- End Footer -->
+</footer>
 
-<a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<!-- ======= Project detail ======= -->
+<dialog class="modal" id="modal" aria-labelledby="m-title">
+	<div class="modal-shell">
+		<figure class="modal-media"><img id="m-img" alt=""></figure>
+		<div class="modal-info">
+			<div class="modal-top">
+				<span class="mono" id="m-count">01 / 20</span>
+				<button class="icon-btn" id="m-close" type="button" aria-label="Close project details">
+					<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+				</button>
+			</div>
+			<p class="m-kicker" id="m-kicker"></p>
+			<h3 id="m-title"></h3>
+			<p class="m-desc" id="m-desc"></p>
+			<ul class="tags" id="m-tags"></ul>
+			<div class="m-actions">
+				<a class="btn btn-primary" id="m-cta" href="#" target="_blank" rel="noopener"></a>
+				<p class="m-note" id="m-note"></p>
+			</div>
+			<div class="modal-nav">
+				<button type="button" id="m-prev"><span aria-hidden="true">←</span> Previous</button>
+				<button type="button" id="m-next">Next <span aria-hidden="true">→</span></button>
+			</div>
+		</div>
+	</div>
+</dialog>
 
-<!-- <div id="preloader">
-	<div class="line"></div>
-</div> -->
-
-<!-- Vendor JS Files -->
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/aos/aos.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
-
-<!-- Template Main JS File -->
-<script src="assets/js/main.js"></script>
-
+<script src="assets/js/projects.js"></script>
+<script src="assets/js/lattice.js"></script>
+<script src="assets/js/app.js"></script>
 </body>
-
 </html>
-
-
-<script type="text/javascript">
-	String.prototype.replaceAt = function(index, replacement) {
-	    return this.substring(0, index) + replacement + this.substring(index + replacement.length);
-	}
-
-	document.title = "010100100110111101";
-	document.getElementById("nameHolder").innerHTML = " 010100100110111101 ";
-
-	setTimeout(function() {
-	    const letterCount = 18;
-	    const name = "Roozbeh Moayyedian";
-	    var nameSetter = window.setInterval(function() {
-	        let i = Math.floor(Math.random() * name.length);
-	        console.log(i);
-	        let tempTitle = document.title;
-	        tempTitle = tempTitle.replaceAt(i, name[i]);
-
-	        for (let j = 0; j < tempTitle.length; j++) {
-	            if (tempTitle[j] == '0' || tempTitle[j] == '1') {
-	                let x = Math.floor(Math.random() * 2);
-	                tempTitle = tempTitle.replaceAt(j, x.toString());
-	            }
-	        }
-	        document.title = tempTitle;
-	        document.getElementById("nameHolder").innerHTML = '   ' + tempTitle + '    ';
-
-	        // Check elapsed time (5 seconds) and update the entire string if needed
-	        const currentTime = new Date().getTime();
-	        if (currentTime - startTime >= 5000) {
-	            document.title = name;
-	            document.getElementById("nameHolder").innerHTML = '   ' + name + '    ';
-	            clearInterval(nameSetter);
-	        }
-	    }, 250);
-
-	    // Record the start time
-	    const startTime = new Date().getTime();
-
-	}, 3000);
-
-
-
-
-
-
-</script>
