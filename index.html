@@ -28,10 +28,18 @@
 	(function () {
 		var root = document.documentElement;
 		root.classList.add('js');
+		// Always open at the top: don't restore the old scroll position, and drop section anchors (#work, #contact)
+		// left in the address by the nav. Project links (#project-name) still open that project.
+		if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+		if (/^#(top|work|contact|footer)?$/.test(location.hash) && location.href.indexOf('#') !== -1) {
+			try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
+		}
 		// Opening door: skipped for deep links and reduced motion. Failsafe in case the main script never runs.
 		if (!location.hash && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
 			root.classList.add('gated');
 			window.__gateFailsafe = setTimeout(function () { root.classList.remove('gated'); }, 15000);
+			// Some browsers still restore the scroll position on reload; snap back to the top while the door is shut
+			window.addEventListener('load', function () { if (root.classList.contains('gated')) window.scrollTo(0, 0); });
 		}
 	})();
 	</script>
