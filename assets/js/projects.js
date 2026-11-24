@@ -12,6 +12,56 @@
  */
 window.PROJECTS = [
   {
+    slug: 'seven-ascensions',
+    title: 'The Book of Kings: Seven Ascensions',
+    client: 'Hexon Engineering Inc.',
+    desc: 'A mixed-reality diorama game for Meta Quest 3 that adapts the Shahnameh, the Persian Book of Kings, into the player’s own room. Level one, The Shadow Serpent, turns the room into a moonlit marsh hunted with a mirror and a torch.',
+    tags: ['Mixed reality', 'Meta Quest', 'Game'],
+    filters: ['xr', 'games'],
+    img: 'seven-ascensions',
+    alt: 'A dark blue room lit by a glowing box, with Persian calligraphy shining on the wall',
+    status: 'In development',
+    layout: 'feature'
+  },
+  {
+    slug: 'destination-ducks',
+    title: 'Destination Ducks',
+    client: 'Hexon Engineering Inc.',
+    desc: 'An iOS app and website that give each cruise-ship rubber duck a passport and a story. Finders scan a duck, log a sighting and follow its journey from port to port, while their ducks play on a 3D pool deck.',
+    tags: ['iOS app', '3D', 'Web'],
+    filters: ['games', 'web'],
+    img: 'destination-ducks',
+    alt: 'Rubber ducks playing leapfrog on the sunny wooden deck of a cruise ship',
+    url: 'https://destinationducks.com',
+    cta: 'Visit website'
+  },
+  {
+    slug: 'detour-ducks',
+    title: 'Detour Ducks',
+    client: 'Hexon Engineering Inc.',
+    desc: 'The off-road sister of Destination Ducks: ducks left in trail rigs instead of on cruise ships. Your ducks ride along on a diorama dashboard, with feeding, play and GPS-tracked sightings.',
+    tags: ['iOS app', '3D'],
+    filters: ['games'],
+    img: 'detour-ducks',
+    alt: 'Rubber ducks on a miniature campsite diorama on the dashboard of a red off-road truck',
+    status: 'In development'
+  },
+  {
+    slug: 'hayat',
+    title: 'Hayat: Echoes Through Time',
+    client: 'Interactive narrative · Unity WebGL',
+    desc: 'A browser-based narrative experience set in a traditional Persian courtyard. Three structures rise and fall across three turning points in Iranian history, told through a father and daughter who return in every era.',
+    tags: ['Web', '3D', 'Narrative'],
+    filters: ['web', 'games'],
+    img: 'hayat',
+    alt: 'An avatar stands in a Persian courtyard facing a central reflecting pool and three buildings',
+    url: 'https://roozbehmd.github.io/Hayat/',
+    cta: 'Play the demo',
+    note: 'Desktop browser',
+    status: 'Demo',
+    layout: 'wide'
+  },
+  {
     slug: 'elsewhere-electric',
     title: 'Elsewhere Electric',
     client: 'Stitch Media',
@@ -23,6 +73,18 @@ window.PROJECTS = [
     url: 'https://www.gamesbystitch.com/games/elsewhere-electric',
     cta: 'Visit project page',
     status: 'Upcoming'
+  },
+  {
+    slug: 'doja-grow-room',
+    title: 'DOJA Grow Room',
+    client: 'Doja',
+    desc: 'An interactive display developed for Doja.',
+    tags: ['Interactive display'],
+    filters: ['installations'],
+    img: 'gallery-13',
+    alt: 'A person stands in front of a screen showing a lush grow room',
+    url: 'https://youtu.be/YRb0Nn1kpPE',
+    cta: 'Watch video'
   },
   {
     slug: 'winteraction',
@@ -39,18 +101,6 @@ window.PROJECTS = [
     layout: 'feature'
   },
   {
-    slug: 'doja-grow-room',
-    title: 'DOJA Grow Room',
-    client: 'Doja',
-    desc: 'An interactive display developed for Doja.',
-    tags: ['Interactive display'],
-    filters: ['installations'],
-    img: 'gallery-13',
-    alt: 'A person stands in front of a screen showing a lush grow room',
-    url: 'https://youtu.be/YRb0Nn1kpPE',
-    cta: 'Watch video'
-  },
-  {
     slug: 'jailhouse',
     title: 'Jailhouse',
     client: 'Personal project',
@@ -63,6 +113,20 @@ window.PROJECTS = [
     cta: 'Play in browser',
     note: 'Desktop only · Chrome or Firefox',
     status: 'In development'
+  },
+  {
+    slug: 'luminous-trails',
+    title: 'Luminous Trails',
+    client: 'Nuit Blanche Toronto',
+    desc: 'A geolocation-based AR social experience designed and developed for Nuit Blanche Toronto.',
+    tags: ['AR', 'Geolocation'],
+    filters: ['xr'],
+    img: 'gallery-1',
+    alt: 'A glowing AR figure and light trails in front of the Toronto sign at night',
+    url: 'https://apps.apple.com/ca/app/luminous-trails/id1644229038',
+    cta: 'Install on iOS',
+    note: 'iOS',
+    layout: 'wide'
   },
   {
     slug: 'cherry-blossoms-to',
@@ -103,19 +167,6 @@ window.PROJECTS = [
     cta: 'Download',
     note: 'Windows & Mac',
     layout: 'feature'
-  },
-  {
-    slug: 'luminous-trails',
-    title: 'Luminous Trails',
-    client: 'Nuit Blanche Toronto',
-    desc: 'A geolocation-based AR social experience designed and developed for Nuit Blanche Toronto.',
-    tags: ['AR', 'Geolocation'],
-    filters: ['xr'],
-    img: 'gallery-1',
-    alt: 'A glowing AR figure and light trails in front of the Toronto sign at night',
-    url: 'https://apps.apple.com/ca/app/luminous-trails/id1644229038',
-    cta: 'Install on iOS',
-    note: 'iOS'
   },
   {
     slug: 'virtual-gallery',

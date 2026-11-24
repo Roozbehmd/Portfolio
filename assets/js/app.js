@@ -131,7 +131,7 @@
         sizes="${sizes}" alt="${esc(p.alt)}" loading="lazy" decoding="async"${p.pos ? ` style="object-position:${esc(p.pos)}"` : ''}></span>
       <span class="card-glare" aria-hidden="true"></span>
       ${p.status ? `<span class="badge"><i aria-hidden="true"></i>${esc(p.status)}</span>` : ''}
-      <span class="card-cta" aria-hidden="true">${esc(p.cta)} ${ARROW}</span>
+      <span class="card-cta" aria-hidden="true">${esc(p.url ? p.cta : 'View details')} ${ARROW}</span>
       <span class="card-body">
         <span class="card-kicker">${esc(p.client)}</span>
         <span class="card-title">${esc(p.title)}</span>
@@ -274,8 +274,9 @@
     m.title.textContent = p.title;
     m.desc.textContent = p.desc;
     m.tags.innerHTML = (p.status ? `<li class="tag-status">${esc(p.status)}</li>` : '') + p.tags.map((t) => `<li>${esc(t)}</li>`).join('');
-    m.cta.href = p.url;
-    m.cta.innerHTML = `${esc(p.cta)} ${ARROW}`;
+    m.cta.hidden = !p.url;
+    if (p.url) m.cta.href = p.url; else m.cta.removeAttribute('href');
+    m.cta.innerHTML = `${esc(p.cta || '')} ${ARROW}`;
     m.note.textContent = p.note || '';
     m.note.hidden = !p.note;
   }
