@@ -751,12 +751,14 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
    Project dialog
    ========================================================================== */
 .modal {
-  width: min(1240px, calc(100vw - 32px));
-  max-width: none;
-  max-height: calc(100svh - 32px);
-  padding: 0; border: 0;
+  /* One fixed full-screen size for every project, so the close button and
+     Previous / Next never move while flipping through projects */
+  position: fixed; inset: 0;
+  width: 100vw; height: 100vh; height: 100dvh;
+  max-width: none; max-height: none;
+  margin: 0; padding: 0; border: 0;
   background: transparent; color: var(--text);
-  overflow: visible;
+  overflow: hidden;
 }
 .modal::backdrop {
   background: rgba(3, 5, 8, 0.78);
@@ -766,43 +768,47 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 .modal[open] .modal-shell { animation: pop 0.55s var(--ease) both; }
 .modal-shell {
   display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
-  max-height: calc(100svh - 32px);
+  grid-template-columns: minmax(0, 1.7fr) minmax(360px, 1fr);
+  height: 100%;
   background: var(--ink-2);
-  border: 1px solid var(--line-2);
-  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 40px 120px -30px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(184, 255, 244, 0.06);
 }
 .modal-media {
-  margin: 0; min-height: 360px;
+  margin: 0; min-height: 0; height: 100%;
   display: grid; place-items: center;
   background: #000;
+  overflow: hidden;
 }
 .modal-media img {
   width: 100%; height: 100%;
-  max-height: calc(100svh - 34px);
   object-fit: contain;
   opacity: 0; transition: opacity 0.5s;
 }
 .modal-media img.ready { opacity: 1; }
 .modal-info {
   display: flex; flex-direction: column; gap: 16px;
-  padding: 26px 30px 28px;
-  overflow: auto;
-  min-width: 0;
+  min-width: 0; min-height: 0;
+  padding: 0 32px;
+  overflow-y: auto; overscroll-behavior: contain;
+  border-left: 1px solid var(--line);
 }
-.modal-top { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--muted); }
+.modal-top {
+  position: sticky; top: 0; z-index: 1;
+  display: flex; align-items: center; justify-content: space-between;
+  margin: 0 -32px; padding: 22px 32px 12px;
+  font-size: 12px; color: var(--muted);
+  background: linear-gradient(var(--ink-2) 78%, transparent);
+}
 .icon-btn {
   display: grid; place-items: center;
-  width: 40px; height: 40px;
+  width: 44px; height: 44px;
   background: transparent; border: 1px solid var(--line-2); border-radius: 50%;
   cursor: pointer; transition: border-color 0.3s, rotate 0.5s var(--ease);
 }
 .icon-btn svg { width: 14px; height: 14px; }
 .icon-btn:hover { border-color: var(--cyan); rotate: 90deg; }
 .m-kicker {
-  margin: 18px 0 0;
+  margin: 4vh 0 0;
   font-family: var(--font-mono); font-size: 11.5px; font-weight: 500;
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan);
 }
@@ -812,56 +818,41 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
   font-size: clamp(2rem, 1.4rem + 2vw, 3.3rem);
   line-height: 1.02; text-wrap: balance;
 }
-.m-desc { margin: 0; color: #c4cddc; font-size: 1.04rem; line-height: 1.65; max-width: 40ch; }
+.m-desc { margin: 0; color: #c4cddc; font-size: 1.04rem; line-height: 1.65; max-width: 44ch; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
 .tags .tag-status { border-color: var(--cyan-dim); color: var(--cyan); }
 .m-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 8px; }
 .m-actions .btn svg { width: 13px; height: 13px; }
 .m-note { margin: 0; font-family: var(--font-mono); font-size: 11.5px; color: var(--muted); letter-spacing: 0.04em; }
 .modal-nav {
+  position: sticky; bottom: 0; z-index: 1;
   display: flex; justify-content: space-between; gap: 12px;
-  margin-top: auto; padding-top: 18px;
+  margin: auto -32px 0; padding: 10px 32px calc(14px + env(safe-area-inset-bottom));
   border-top: 1px solid var(--line);
+  background: var(--ink-2);
 }
 .modal-nav button {
-  background: transparent; border: 0; padding: 8px 0;
-  font-family: var(--font-mono); font-size: 11.5px; font-weight: 500;
+  background: transparent; border: 0; padding: 14px 0; min-width: 44%;
+  font-family: var(--font-mono); font-size: 12px; font-weight: 500;
   letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+  text-align: left;
   cursor: pointer; transition: color 0.3s;
 }
+.modal-nav button + button { text-align: right; }
 .modal-nav button:hover { color: var(--text); }
 
 /* Narrow screens: image pinned on top, only the text panel scrolls */
 @media (max-width: 860px) {
-  .modal-shell {
-    display: flex; flex-direction: column;
-    height: calc(100svh - 32px);
-    overflow: hidden;
-  }
+  .modal-shell { display: flex; flex-direction: column; padding-top: env(safe-area-inset-top); background: #000; }
   .modal-media {
     flex: none;
-    height: clamp(180px, 36svh, 380px); min-height: 0;
+    height: 40%; min-height: 0;
     border-bottom: 1px solid var(--line);
   }
-  .modal-media img { max-height: none; }
-  .modal-info {
-    flex: 1 1 auto; min-height: 0;
-    overflow-y: auto; overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
-    padding: 0 20px;
-    gap: 14px;
-  }
-  .modal-top {
-    position: sticky; top: 0; z-index: 1;
-    margin: 0 -20px; padding: 12px 20px 10px;
-    background: linear-gradient(var(--ink-2) 75%, transparent);
-  }
+  .modal-info { flex: 1 1 auto; padding: 0 20px; gap: 14px; border-left: 0; background: var(--ink-2); }
+  .modal-top { margin: 0 -20px; padding: 12px 20px 10px; }
   .m-kicker { margin-top: 0; }
-  .modal-nav {
-    position: sticky; bottom: 0;
-    margin: auto -20px 0; padding: 6px 20px 8px;
-    background: var(--ink-2);
-  }
+  .modal-nav { margin: auto -20px 0; padding: 4px 20px calc(8px + env(safe-area-inset-bottom)); }
 }
 
 /* ==========================================================================
