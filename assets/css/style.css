@@ -123,24 +123,6 @@ button { font: inherit; color: inherit; }
 }
 
 .brand { display: flex; align-items: center; gap: 14px; margin-right: auto; }
-.brand-mark {
-  position: relative;
-  display: grid; place-items: center;
-  width: 34px; height: 34px;
-}
-.brand-mark::before {
-  content: "";
-  position: absolute; inset: 5px;
-  border: 1.5px solid var(--cyan);
-  rotate: 45deg;
-  box-shadow: 0 0 14px var(--cyan-dim), inset 0 0 10px rgba(184, 255, 244, 0.25);
-  transition: rotate 0.6s var(--ease), box-shadow 0.4s;
-}
-.brand-mark span {
-  position: relative;
-  font-family: var(--font-mono); font-size: 9.5px; font-weight: 500; letter-spacing: 0.04em;
-}
-.brand:hover .brand-mark::before { rotate: 135deg; box-shadow: 0 0 22px var(--cyan), inset 0 0 12px rgba(184, 255, 244, 0.35); }
 .brand-name { font-family: var(--font-display); font-size: 19px; letter-spacing: 0.01em; }
 
 .nav-links { display: flex; gap: 28px; }
@@ -161,7 +143,8 @@ button { font: inherit; color: inherit; }
 .nav-clock time { color: var(--text); font-variant-numeric: tabular-nums; }
 
 @media (max-width: 720px) {
-  .brand-name { display: none; }
+  .brand { display: none; }
+  .nav-links { margin-left: auto; }
   .nav-clock { display: none; }
   .nav-links { gap: 22px; }
 }
@@ -213,7 +196,7 @@ button { font: inherit; color: inherit; }
   letter-spacing: -0.012em;
   text-wrap: balance;
 }
-.hero h1 em { font-style: italic; color: #dfe7f5; }
+.hero h1 em { font-style: normal; color: inherit; }
 
 /* The name: binary decode + blue highlight sweep (from the original site) */
 .name {

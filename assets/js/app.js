@@ -234,6 +234,11 @@
     document.addEventListener('pointerover', (e) => setMode(e.target));
     document.documentElement.addEventListener('pointerleave', () => { dot.classList.add('out'); ring.classList.add('out'); });
     window.addEventListener('pointerdown', () => ring.classList.add('press'));
+    // Safari brings back the system pointer when a press starts a text selection; skip that outside form fields
+    document.addEventListener('mousedown', (e) => {
+      if (e.button !== 0 || (e.target.closest && e.target.closest('input, textarea, select, [contenteditable]'))) return;
+      e.preventDefault();
+    });
     window.addEventListener('pointerup', () => ring.classList.remove('press'));
     if (dlg) {
       dlg.addEventListener('close', mount);

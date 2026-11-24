@@ -167,6 +167,41 @@
   }, { passive: true });
   document.documentElement.addEventListener('pointerleave', () => { pointer.inside = false; });
 
+  /* Phones: tilting the device moves the glow and parallax the way the mouse does on desktop. */
+  if (!reduce && 'DeviceOrientationEvent' in window && window.matchMedia('(hover: none)').matches) {
+    const RANGE = 22; // degrees of tilt from the resting angle that reach the edge of the hero
+    let base = null;
+    const clamp = (v) => Math.max(-1, Math.min(1, v));
+    const onTilt = (e) => {
+      if (e.beta == null || e.gamma == null) return;
+      // Map tilt onto screen axes, whichever way the phone is turned.
+      const angle = (screen.orientation && screen.orientation.angle) || window.orientation || 0;
+      let tx = e.gamma, ty = e.beta;
+      if (angle === 90) { tx = e.beta; ty = -e.gamma; }
+      else if (angle === -90 || angle === 270) { tx = -e.beta; ty = e.gamma; }
+      if (!base) base = { x: tx, y: ty };
+      // The resting angle slowly follows how the phone is held, so the glow drifts back to centre.
+      base.x += (tx - base.x) * 0.008;
+      base.y += (ty - base.y) * 0.008;
+      if (!pointer.inside) pointer.fresh = true;
+      pointer.inside = true;
+      pointer.x = W / 2 + clamp((tx - base.x) / RANGE) * W * 0.45;
+      pointer.y = H / 2 + clamp((ty - base.y) / RANGE) * H * 0.45;
+    };
+    const listen = () => window.addEventListener('deviceorientation', onTilt, { passive: true });
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+      // iOS only allows motion access after a tap, so ask on the first one.
+      const ask = () => {
+        DeviceOrientationEvent.requestPermission()
+          .then((state) => { if (state === 'granted') listen(); })
+          .catch(() => {});
+      };
+      document.addEventListener('click', ask, { once: true });
+    } else {
+      listen();
+    }
+  }
+
   const hero = canvas.parentElement;
   hero.addEventListener('pointerdown', (e) => {
     if (e.target.closest('a, button')) return;
