@@ -26,7 +26,7 @@ window.PROJECTS = [
   {
     slug: 'destination-ducks',
     title: 'Destination Ducks',
-    client: 'Hexon Engineering Inc.',
+    client: 'Destination Ducks · Co-founder',
     desc: 'An iOS and Android app and website that give each cruise-ship rubber duck a passport and a story. Finders scan a duck, log a sighting and follow its journey from port to port, while their ducks play on a 3D pool deck.',
     tags: ['Real-world game', 'iOS & Android', '3D', 'Web'],
     filters: ['games', 'web'],
@@ -38,7 +38,7 @@ window.PROJECTS = [
   {
     slug: 'detour-ducks',
     title: 'Detour Ducks',
-    client: 'Hexon Engineering Inc.',
+    client: 'Destination Ducks · Co-founder',
     desc: 'The off-road sister of Destination Ducks: ducks left in trail rigs instead of on cruise ships. Your ducks ride along on a diorama dashboard, with feeding, play and GPS-tracked sightings.',
     tags: ['Real-world game', 'iOS & Android', '3D'],
     filters: ['games'],
