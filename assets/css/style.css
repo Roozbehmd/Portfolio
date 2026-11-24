@@ -831,12 +831,37 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 }
 .modal-nav button:hover { color: var(--text); }
 
+/* Narrow screens: image pinned on top, only the text panel scrolls */
 @media (max-width: 860px) {
-  .modal-shell { grid-template-columns: minmax(0, 1fr); overflow: auto; }
-  .modal-media { min-height: 0; aspect-ratio: 4 / 3; }
-  .modal-media img { max-height: 48svh; }
-  .modal-info { overflow: visible; padding: 20px 20px 22px; }
-  .m-kicker { margin-top: 6px; }
+  .modal-shell {
+    display: flex; flex-direction: column;
+    height: calc(100svh - 32px);
+    overflow: hidden;
+  }
+  .modal-media {
+    flex: none;
+    height: clamp(180px, 36svh, 380px); min-height: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .modal-media img { max-height: none; }
+  .modal-info {
+    flex: 1 1 auto; min-height: 0;
+    overflow-y: auto; overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 20px;
+    gap: 14px;
+  }
+  .modal-top {
+    position: sticky; top: 0; z-index: 1;
+    margin: 0 -20px; padding: 12px 20px 10px;
+    background: linear-gradient(var(--ink-2) 75%, transparent);
+  }
+  .m-kicker { margin-top: 0; }
+  .modal-nav {
+    position: sticky; bottom: 0;
+    margin: auto -20px 0; padding: 6px 20px 8px;
+    background: var(--ink-2);
+  }
 }
 
 /* ==========================================================================
