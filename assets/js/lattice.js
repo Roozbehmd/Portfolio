@@ -20,7 +20,8 @@
   // Each visit opens the grid at a slightly different scale and point in its breathing cycle.
   const SCALE = 0.78 + Math.random() * 0.5;
   const PHASE = Math.random() * Math.PI * 2;
-  const pointer = { x: 0, y: 0, sx: 0, sy: 0, inside: false, fresh: true };
+  // w eases between 0 and 1 as the cursor enters or leaves, so the parallax shift fades in/out instead of snapping
+  const pointer = { x: 0, y: 0, sx: 0, sy: 0, w: 0, inside: false, fresh: true };
   const pulses = [];
 
   /* Pre-rendered glowing diamond, drawn with additive blending. */
@@ -80,14 +81,16 @@
     const t = (now - t0) / 1000;
     const cx = W / 2, cy = H / 2;
 
-    if (pointer.fresh) { pointer.sx = pointer.x; pointer.sy = pointer.y; pointer.fresh = false; }
+    // Jump the glow to a fresh entry point only once the last glow has faded; otherwise let it glide there
+    if (pointer.fresh) { if (pointer.w < 0.02) { pointer.sx = pointer.x; pointer.sy = pointer.y; } pointer.fresh = false; }
     pointer.sx += (pointer.x - pointer.sx) * 0.14;
     pointer.sy += (pointer.y - pointer.sy) * 0.14;
 
     // Slow breathing zoom (a nod to the original background) plus a little parallax.
     const zoom = reduce ? 1 : 1 + 0.045 * Math.sin(t * 0.21 + PHASE);
-    const px = pointer.inside ? (pointer.sx - cx) * -0.025 : 0;
-    const py = pointer.inside ? (pointer.sy - cy) * -0.025 : 0;
+    pointer.w += ((pointer.inside ? 1 : 0) - pointer.w) * 0.05;
+    const px = (pointer.sx - cx) * -0.025 * pointer.w;
+    const py = (pointer.sy - cy) * -0.025 * pointer.w;
 
     if (!reduce && t - lastAmbient > 2.6) {
       lastAmbient = t;
@@ -106,9 +109,9 @@
       c.sx = x; c.sy = y;
 
       let target = 0;
-      if (pointer.inside) {
+      if (pointer.w > 0.001) {
         const dx = x - pointer.sx, dy = y - pointer.sy;
-        target = Math.exp(-(dx * dx + dy * dy) / sig2);
+        target = Math.exp(-(dx * dx + dy * dy) / sig2) * pointer.w;
       }
       for (const p of pulses) {
         const age = t - p.t;
@@ -159,7 +162,8 @@
     const inside = p.x >= 0 && p.y >= 0 && p.x <= W && p.y <= H;
     if (inside && !pointer.inside) pointer.fresh = true;
     pointer.inside = inside;
-    pointer.x = p.x; pointer.y = p.y;
+    // Outside the hero, keep the last position inside so the glow and shift fade out where the cursor left
+    if (inside) { pointer.x = p.x; pointer.y = p.y; }
   }, { passive: true });
   document.documentElement.addEventListener('pointerleave', () => { pointer.inside = false; });
 
