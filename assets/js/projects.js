@@ -32,10 +32,8 @@ window.PROJECTS = [
     desc: 'An iOS app and website that give each cruise-ship rubber duck a passport and a story. Finders scan a duck, log a sighting and follow its journey from port to port, while their ducks play on a 3D pool deck.',
     tags: ['Real-world game', 'iOS app', '3D', 'Web'],
     filters: ['games', 'web'],
-    img: 'destination-ducks-logo',
-    full: 'destination-ducks',
-    fullAlt: 'Rubber ducks playing leapfrog on the sunny wooden deck of a cruise ship',
-    alt: 'Destination Ducks logo: a captain rubber duck on a cruise ship deck',
+    img: 'destination-ducks-hero',
+    alt: 'The Destination Ducks emblem above rubber ducks swimming in a pool on a sunny cruise-ship deck',
     url: 'https://destinationducks.com',
     cta: 'Visit website'
   },
@@ -46,10 +44,8 @@ window.PROJECTS = [
     desc: 'The off-road sister of Destination Ducks: ducks left in trail rigs instead of on cruise ships. Your ducks ride along on a diorama dashboard, with feeding, play and GPS-tracked sightings.',
     tags: ['Real-world game', 'iOS app', '3D'],
     filters: ['games'],
-    img: 'detour-ducks-logo',
-    full: 'detour-ducks',
-    fullAlt: 'Rubber ducks on a miniature campsite diorama on the dashboard of a red off-road truck',
-    alt: 'Detour Ducks logo: a ranger rubber duck pointing down a mountain trail',
+    img: 'detour-ducks-hero',
+    alt: 'The Detour Ducks badge above a rubber-duck campsite built across the dashboard of an off-road truck',
     status: 'In development'
   },
   {
