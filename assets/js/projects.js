@@ -3,7 +3,7 @@
  * Order here is the order on the page. To add a project, copy one entry and edit it.
  *
  *   img      file name (no extension) in assets/img/gallery/web/ (800px and 1600px copies)
- *   full     optional different image for the detail view
+ *   full     optional different image for the detail view (fullAlt describes it)
  *   filters  any of: xr, installations, games, web
  *   layout   optional: "feature" (big tile) or "wide" (double-width tile)
  *   pos      optional image crop focus for the tile, e.g. "center 85%"
@@ -18,8 +18,10 @@ window.PROJECTS = [
     desc: 'A mixed-reality diorama game for Meta Quest 3 that adapts the Shahnameh, the Persian Book of Kings, into the player’s own room. Level one, The Shadow Serpent, turns the room into a moonlit marsh hunted with a mirror and a torch.',
     tags: ['Mixed reality', 'Meta Quest', 'Game'],
     filters: ['xr', 'games'],
-    img: 'seven-ascensions',
-    alt: 'A dark blue room lit by a glowing box, with Persian calligraphy shining on the wall',
+    img: 'seven-ascensions-logo',
+    full: 'seven-ascensions',
+    fullAlt: 'A dark blue room lit by a glowing box, with Persian calligraphy shining on the wall',
+    alt: 'The Book of Kings: Seven Ascensions logo: seven mosaic arches above gilded lettering',
     status: 'In development',
     layout: 'feature'
   },
@@ -30,8 +32,10 @@ window.PROJECTS = [
     desc: 'An iOS app and website that give each cruise-ship rubber duck a passport and a story. Finders scan a duck, log a sighting and follow its journey from port to port, while their ducks play on a 3D pool deck.',
     tags: ['iOS app', '3D', 'Web'],
     filters: ['games', 'web'],
-    img: 'destination-ducks',
-    alt: 'Rubber ducks playing leapfrog on the sunny wooden deck of a cruise ship',
+    img: 'destination-ducks-logo',
+    full: 'destination-ducks',
+    fullAlt: 'Rubber ducks playing leapfrog on the sunny wooden deck of a cruise ship',
+    alt: 'Destination Ducks logo: a captain rubber duck on a cruise ship deck',
     url: 'https://destinationducks.com',
     cta: 'Visit website'
   },
@@ -42,8 +46,10 @@ window.PROJECTS = [
     desc: 'The off-road sister of Destination Ducks: ducks left in trail rigs instead of on cruise ships. Your ducks ride along on a diorama dashboard, with feeding, play and GPS-tracked sightings.',
     tags: ['iOS app', '3D'],
     filters: ['games'],
-    img: 'detour-ducks',
-    alt: 'Rubber ducks on a miniature campsite diorama on the dashboard of a red off-road truck',
+    img: 'detour-ducks-logo',
+    full: 'detour-ducks',
+    fullAlt: 'Rubber ducks on a miniature campsite diorama on the dashboard of a red off-road truck',
+    alt: 'Detour Ducks logo: a ranger rubber duck pointing down a mountain trail',
     status: 'In development'
   },
   {

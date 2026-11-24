@@ -267,7 +267,7 @@
     m.img.classList.remove('ready');
     m.img.onload = () => m.img.classList.add('ready');
     m.img.src = `${IMG}${src}-1600.jpg`;
-    m.img.alt = p.alt;
+    m.img.alt = (p.full && p.fullAlt) || p.alt;
     if (m.img.complete) m.img.classList.add('ready');
     m.count.textContent = `${pad(pos + 1)} / ${pad(list.length)}`;
     m.kicker.textContent = p.client;
