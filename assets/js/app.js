@@ -60,10 +60,68 @@
     });
   }
 
+  /* ---------------------------------------------------------------
+   * Opening door: a lone diamond on a black screen, split by a seam.
+   * Tap it (or wait 10s): the doors slide apart and the diamond drops
+   * into a cell of the hero grid, which lights up as if tapped.
+   * ------------------------------------------------------------- */
+  const opened = new Promise((resolve) => {
+    const root = document.documentElement;
+    const gate = $('#gate');
+    clearTimeout(window.__gateFailsafe);
+    if (!gate || !root.classList.contains('gated')) { if (gate) gate.remove(); resolve(); return; }
+    const key = $('#gate-key');
+    let done = false;
+    const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+
+    const open = () => {
+      if (done) return;
+      done = true;
+      clearTimeout(auto);
+      document.removeEventListener('keydown', onKey);
+      gate.classList.add('charge');
+
+      // Pick a resting cell: right of the headline on wide screens, anywhere central on phones
+      const W = window.innerWidth, H = window.innerHeight;
+      const wide = W >= 900;
+      const tx = W * (wide ? 0.6 + Math.random() * 0.25 : 0.2 + Math.random() * 0.6);
+      const ty = H * (wide ? 0.3 + Math.random() * 0.4 : 0.2 + Math.random() * 0.6);
+      const cell = window.Lattice && window.Lattice.cellNear ? window.Lattice.cellNear(tx, ty) : null;
+
+      setTimeout(() => {
+        gate.classList.add('opening');
+        root.classList.remove('gated');
+        resolve();
+      }, 260);
+
+      const D = key.offsetWidth / 2;
+      const fx = W / 2, fy = H / 2;
+      const t0 = performance.now() + 380, dur = 1150;
+      const fly = (now) => {
+        const t = Math.min(1, Math.max(0, (now - t0) / dur));
+        const e = ease(t);
+        const x = cell ? cell.x : fx, y = cell ? cell.y : fy;
+        const k = cell ? 1 + (cell.r / D - 1) * e : 1 - e * 0.4;
+        key.style.transform = `translate3d(${(x - fx) * e}px, ${(y - fy) * e}px, 0) rotate(${e * 90}deg) scale(${k})`;
+        if (t < 1) { requestAnimationFrame(fly); return; }
+        if (cell && window.Lattice) window.Lattice.pulse(x, y, 1.25);
+        key.classList.add('landed');
+        setTimeout(() => gate.remove(), 600);
+      };
+      requestAnimationFrame(fly);
+    };
+    const onKey = (e) => { if (!e.metaKey && !e.ctrlKey && !e.altKey) open(); };
+    key.addEventListener('click', open);
+    gate.addEventListener('click', open);
+    document.addEventListener('keydown', onKey);
+    const auto = setTimeout(open, 10000);
+    requestAnimationFrame(() => key.focus({ preventScroll: true }));
+  });
+
   /* Hero name + tab title */
   const nameEl = $('#name');
   const nameFx = $('#name-fx');
-  if (nameEl && nameFx) {
+  if (nameEl && nameFx) opened.then(() => {
     const text = nameFx.textContent.trim();
     const HOLD = 650, DUR = 1700;
     decode(nameFx, text, {
@@ -79,7 +137,7 @@
       const r = nameEl.getBoundingClientRect();
       if (window.Lattice) window.Lattice.pulse(r.left + r.width / 2, r.top + r.height / 2, 1.1);
     });
-  }
+  });
 
   /* ---------------------------------------------------------------
    * Nav: solid background after scrolling, live Toronto clock

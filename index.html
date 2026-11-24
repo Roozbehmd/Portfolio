@@ -24,9 +24,25 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 	<link href="assets/css/style.css" rel="stylesheet">
-	<script>document.documentElement.classList.add('js');</script>
+	<script>
+	(function () {
+		var root = document.documentElement;
+		root.classList.add('js');
+		// Opening door: skipped for deep links and reduced motion. Failsafe in case the main script never runs.
+		if (!location.hash && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+			root.classList.add('gated');
+			window.__gateFailsafe = setTimeout(function () { root.classList.remove('gated'); }, 15000);
+		}
+	})();
+	</script>
 </head>
 <body>
+
+<div class="gate" id="gate">
+	<div class="gate-door gate-door--l" aria-hidden="true"></div>
+	<div class="gate-door gate-door--r" aria-hidden="true"></div>
+	<button class="gate-key" id="gate-key" type="button" aria-label="Open the site"><i></i></button>
+</div>
 
 <a class="skip" href="#work">Skip to work</a>
 

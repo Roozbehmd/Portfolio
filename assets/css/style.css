@@ -111,7 +111,7 @@ button { font: inherit; color: inherit; }
   display: flex; align-items: center; gap: 28px;
   padding: calc(env(safe-area-inset-top, 0px) + 22px) max(var(--gutter), env(safe-area-inset-right, 0px)) 22px max(var(--gutter), env(safe-area-inset-left, 0px));
   border-bottom: 1px solid transparent;
-  transition: background-color 0.4s, border-color 0.4s, padding 0.4s var(--ease);
+  transition: background-color 0.4s, border-color 0.4s, padding 0.4s var(--ease), opacity 1s 0.5s;
 }
 .nav.scrolled {
   background: rgba(5, 7, 11, 0.72);
@@ -518,6 +518,79 @@ html.js .card.reveal:not(.in) .card-media img { transform: scale(1.18); }
 
 /* View-transition timing for the filter reflow */
 ::view-transition-group(*) { animation-duration: 0.55s; animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1); }
+
+/* ==========================================================================
+   Opening door: one glowing diamond on black, split top to bottom by a seam.
+   Tap (or wait) and the doors slide apart while the diamond drops into the grid.
+   ========================================================================== */
+.gate { display: none; }
+html.gated { overflow: hidden; }
+html.gated .gate, .gate.opening {
+  display: block;
+  position: fixed; inset: 0; z-index: 1000;
+  --d: 46px; /* half the diamond's height */
+}
+html.gated .nav { opacity: 0; }
+html.gated .hero-inner > *, html.gated .hero-foot { animation: none; opacity: 0; }
+
+.gate-door {
+  position: absolute; top: 0; bottom: 0; width: 50%;
+  background: var(--ink);
+  transition: transform 1.25s cubic-bezier(0.7, 0, 0.18, 1);
+}
+.gate-door--l { left: 0; }
+.gate-door--r { right: 0; }
+/* The seam: each door carries its half of the line, above and below the diamond */
+.gate-door::before, .gate-door::after {
+  content: ""; position: absolute; width: 1px;
+  height: calc(50% - var(--d));
+  background: rgba(170, 255, 244, 0.85);
+  box-shadow: 0 0 10px rgba(120, 255, 236, 0.55);
+  transition: box-shadow 0.35s, background-color 0.35s, opacity 0.9s 0.4s;
+}
+.gate-door::before { top: 0; }
+.gate-door::after { bottom: 0; }
+.gate-door--l::before, .gate-door--l::after { right: 0; }
+.gate-door--r::before, .gate-door--r::after { left: 0; }
+.gate.charge .gate-door::before, .gate.charge .gate-door::after {
+  background: #effffd;
+  box-shadow: 0 0 18px rgba(120, 255, 236, 0.95), 0 0 4px #fff;
+}
+.gate.opening .gate-door::before, .gate.opening .gate-door::after { opacity: 0; }
+.gate.opening .gate-door--l { transform: translateX(-101%); }
+.gate.opening .gate-door--r { transform: translateX(101%); }
+
+.gate-key {
+  position: absolute; left: 50%; top: 50%;
+  width: calc(var(--d) * 2); height: calc(var(--d) * 2);
+  margin: calc(var(--d) * -1) 0 0 calc(var(--d) * -1);
+  padding: 0; border: 0; background: none; color: inherit;
+  will-change: transform;
+  transition: opacity 0.45s;
+  animation: fade-in 1.2s 0.2s ease both;
+}
+.gate-key i {
+  position: absolute; inset: 14.645%;
+  border: 2px solid #c9fff6;
+  rotate: 45deg;
+  box-shadow: 0 0 16px rgba(120, 255, 236, 0.75), inset 0 0 12px rgba(120, 255, 236, 0.35);
+  animation: gate-breathe 2.6s ease-in-out infinite;
+  transition: scale 0.4s var(--ease);
+}
+.gate-key i::after {
+  content: ""; position: absolute; inset: 25%;
+  border: 1.5px solid rgba(170, 255, 244, 0.35);
+  box-shadow: 0 0 10px rgba(120, 255, 236, 0.25);
+}
+.gate-key:hover i, .gate-key:focus-visible i { scale: 1.08; }
+.gate-key:focus-visible { outline: none; }
+.gate.charge .gate-key i { scale: 0.9; animation: none; box-shadow: 0 0 30px rgba(120, 255, 236, 1), inset 0 0 16px rgba(120, 255, 236, 0.6); }
+.gate-key.landed { opacity: 0; }
+
+@keyframes gate-breathe {
+  50% { box-shadow: 0 0 30px rgba(120, 255, 236, 0.95), inset 0 0 16px rgba(120, 255, 236, 0.55); }
+}
+@media (max-width: 640px) { html.gated .gate, .gate.opening { --d: 38px; } }
 
 /* Custom cursor (mouse and trackpad only) */
 html.has-cursor, html.has-cursor * { cursor: none !important; }

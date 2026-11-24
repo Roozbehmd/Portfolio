@@ -214,6 +214,22 @@
       const p = toLocal(clientX, clientY);
       pulses.push({ x: p.x, y: p.y, t: (performance.now() - t0) / 1000, speed: 480, life: 2.6, amp });
       start();
+    },
+    // The grid diamond nearest a point, in viewport coordinates, followed live as the grid breathes.
+    cellNear(clientX, clientY) {
+      const p = toLocal(clientX, clientY);
+      let best = null, bd = Infinity;
+      for (const c of cells) {
+        if (c.sx == null) continue;
+        const d = (c.sx - p.x) ** 2 + (c.sy - p.y) ** 2;
+        if (d < bd) { bd = d; best = c; }
+      }
+      if (!best) return null;
+      return {
+        get x() { return canvas.getBoundingClientRect().left + best.sx; },
+        get y() { return canvas.getBoundingClientRect().top + best.sy; },
+        get r() { return best.r; }
+      };
     }
   };
   window.Lattice = api;
