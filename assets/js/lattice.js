@@ -17,6 +17,8 @@
   let W = 0, H = 0, S = 120, R = 60, cells = [];
   let rect = canvas.getBoundingClientRect();
   let raf = 0, inView = true, t0 = performance.now(), lastAmbient = -10;
+  const AMBIENT = 10;     // seconds between the slow background ripples
+  const AFTER_TAP = 5;    // the next ripple waits this long after any tap or drop-in
   // Each visit opens the grid at a slightly different scale and point in its breathing cycle.
   const SCALE = 0.78 + Math.random() * 0.5;
   const PHASE = Math.random() * Math.PI * 2;
@@ -92,7 +94,7 @@
     const px = (pointer.sx - cx) * -0.025 * pointer.w;
     const py = (pointer.sy - cy) * -0.025 * pointer.w;
 
-    if (!reduce && t - lastAmbient > 2.6) {
+    if (!reduce && t - lastAmbient > AMBIENT) {
       lastAmbient = t;
       pulses.push({ x: Math.random() * W, y: Math.random() * H, t, speed: 220 + Math.random() * 140, life: 3.4, amp: 0.75 });
     }
@@ -177,7 +179,9 @@
     pulse(clientX, clientY, amp = 1) {
       if (reduce) return;
       const p = toLocal(clientX, clientY);
-      pulses.push({ x: p.x, y: p.y, t: (performance.now() - t0) / 1000, speed: 480, life: 2.6, amp });
+      const t = (performance.now() - t0) / 1000;
+      pulses.push({ x: p.x, y: p.y, t, speed: 480, life: 2.6, amp });
+      lastAmbient = t - AMBIENT + AFTER_TAP;
       start();
     },
     // The grid diamond nearest a point, in viewport coordinates, followed live as the grid breathes.

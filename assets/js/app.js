@@ -134,8 +134,6 @@
     }).then(() => {
       document.title = TITLE;
       nameEl.classList.add('lit');
-      const r = nameEl.getBoundingClientRect();
-      if (window.Lattice) window.Lattice.pulse(r.left + r.width / 2, r.top + r.height / 2, 1.1);
     });
   });
 
