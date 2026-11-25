@@ -192,7 +192,7 @@ button { font: inherit; color: inherit; }
   font-family: var(--font-display);
   font-weight: 400;
   font-size: clamp(2.55rem, 1.2rem + 4.7vw, 6.4rem);
-  line-height: 1.04;
+  line-height: 1.16;
   letter-spacing: -0.012em;
   text-wrap: balance;
 }
@@ -338,8 +338,9 @@ html:not(.js) .name { background-size: 100% 100%; }
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
 }
-.marquee-track { display: flex; width: max-content; animation: marquee 48s linear infinite; }
-.collab:hover .marquee-track { animation-play-state: paused; }
+.marquee-track { display: flex; width: max-content; animation: marquee 58s linear infinite; }
+.collab:hover .marquee-track,
+html.js .collab:not(.seen) .marquee-track { animation-play-state: paused; } /* starts once scrolled into view, so the first names aren't missed */
 .marquee ul { display: flex; gap: 44px; padding: 0 44px 0 0; margin: 0; list-style: none; }
 .marquee li {
   display: flex; align-items: center; gap: 44px;

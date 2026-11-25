@@ -225,6 +225,17 @@
   }
   chips.forEach((ch) => ch.addEventListener('click', () => applyFilter(ch.dataset.filter)));
 
+  /* Collaborators marquee: hold still until it's on screen */
+  const collab = $('.collab');
+  if (collab) {
+    if ('IntersectionObserver' in window) {
+      const cio = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) { collab.classList.add('seen'); cio.disconnect(); }
+      }, { threshold: 0.9 });
+      opened.then(() => cio.observe(collab)); // not while the door is still shut
+    } else collab.classList.add('seen');
+  }
+
   /* Scroll reveal */
   const reveals = $$('.reveal');
   if ('IntersectionObserver' in window && !reduce) {
